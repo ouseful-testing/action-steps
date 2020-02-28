@@ -3,7 +3,7 @@ on:
   push
 
 jobs:
-  unzip-files:
+  openlearn-files:
     if: startsWith(github.event.commits[0].message, 'Fetch https://www.open.edu/openlearn')
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +28,7 @@ jobs:
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
-        url="$(cut -d'_' -f2 <<<"$commitmsg")"
+        url="$(cut -d' ' -f2 <<<"$commitmsg")"
         ouxml_grab $url
         ouxml2md --dbname openlearn_oer.db --outdir demo
         git add demo

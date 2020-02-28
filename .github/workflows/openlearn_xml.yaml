@@ -33,6 +33,7 @@ jobs:
         ouxml_grab $url
         ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
         git add "$outdir"
+        git add openlearn_oer.db
         git commit -m"Add content from $url to $outdir"
         git push
       env: 

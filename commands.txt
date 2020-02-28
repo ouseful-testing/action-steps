@@ -1,9 +1,3 @@
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 #FAILED
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 #FAILED
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 #FAILED
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 #FAILED
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1
-Fetch demo2 https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 #FAILED
-Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 demo2
 Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 demo2
 Fetch https://www.open.edu/openlearn/history-the-arts/music/introduction-music-theory/content-section-0?intro=1 intro_music
+Fetch https://www.open.edu/openlearn/history-the-arts/recording-music-and-sound/content-section-0?active-tab=description-tab recording_sound

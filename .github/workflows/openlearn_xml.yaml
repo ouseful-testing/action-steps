@@ -19,12 +19,16 @@ jobs:
     - name: Copy Repository Contents
       uses: actions/checkout@v2
 
+
+    - name: get commit message
+      run: |
+         echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
+        
     - name: handle ouxml
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
-        s="$(github.event.commits[0].message)"
-        url="$(cut -d'_' -f2 <<<"$s")"
+        url="$(cut -d'_' -f2 <<<"$commitmsg")"
         ouxml_grab $url
         ouxml2md --dbname openlearn_oer.db --outdir demo
         git add demo

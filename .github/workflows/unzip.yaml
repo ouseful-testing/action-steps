@@ -1,0 +1,34 @@
+name: Unzip
+on:
+  push:
+    paths:
+    - '**.zip'
+
+jobs:
+  unzip-files:
+    if: startsWith(github.event.commits[0].message, 'Unzip')
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - name: handle zip
+      run: |
+        git config --global user.email "${GH_EMAIL}"
+        git config --global user.name "${GH_USERNAME}"
+        for f in $(git diff HEAD^..HEAD --no-commit-id --name-only | grep -E '.zip$')
+          do
+              echo $f
+              fn=`unzip $f | grep -m1 'creating:' | cut -d' ' -f5-`
+              echo $fn
+              git rm $f
+              git add $fn
+              git commit -m"unzip $f"
+          done
+        git push
+      env: 
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}

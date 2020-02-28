@@ -23,8 +23,8 @@ jobs:
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
-        s = $(github.event.commits[0].message)
-        url = "$(cut -d'_' -f2 <<<"$s")"
+        s="$(github.event.commits[0].message)"
+        url="$(cut -d'_' -f2 <<<"$s")"
         ouxml_grab $url
         ouxml2md --dbname openlearn_oer.db --outdir demo
         git add demo

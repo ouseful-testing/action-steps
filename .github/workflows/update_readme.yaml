@@ -1,0 +1,45 @@
+name: Updates
+on: push
+
+jobs:
+  update_readme:
+    if: (github.event.commits[0].message == 'Update Readme')
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+        
+    - name: commit changes
+      run: |
+        git config --global user.email "${GH_EMAIL}"
+        git config --global user.name "${GH_USERNAME}"
+        # git checkout -B fastpages-automated-setup
+        mv README2.md README.md
+        git add README.md
+        git commit -m'Update README'
+        git push
+      env: 
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}
+        
+  reset_readme:
+    if: (github.event.commits[0].message == 'Reset Readme')
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+        
+    - name: commit changes
+      run: |
+        git config --global user.email "${GH_EMAIL}"
+        git config --global user.name "${GH_USERNAME}"
+        # git checkout -B fastpages-automated-setup
+        mv README1.md README.md
+        git add README.md
+        git commit -m'Reset README'
+        git push
+      env: 
+        GH_EMAIL: ${{ github.event.commits[0].author.email }}
+        GH_USERNAME: ${{ github.event.commits[0].author.username }}

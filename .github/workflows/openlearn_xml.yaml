@@ -28,9 +28,10 @@ jobs:
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
-        url="$(cut -d' ' -f2 <<<"$commitmsg")"
+        url="$(cut -d' ' -f3 <<<"$commitmsg")"
+        outdir="$(cut -d' ' -f2 <<<"$commitmsg")"
         ouxml_grab $url
-        ouxml2md --dbname openlearn_oer.db --outdir demo
+        ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
         git add demo
         git commit -m"Add content from $url"
         git push

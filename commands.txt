@@ -10,5 +10,4 @@ Fetch https://www.open.edu/openlearn/history-the-arts/visions-protest-graffiti/c
 Fetch https://www.open.edu/openlearn/science-maths-technology/learn-code-data-analysis/content-section-overview-0?active-tab=description-tab learn_to_code
 Fetch https://www.open.edu/openlearn/science-maths-technology/learn-code-data-analysis/content-section-overview-0?active-tab=description-tab learn_to_code
 Fetch https://www.open.edu/openlearn/science-maths-technology/introduction-electronics/content-section-2.3.2 intro_electronics
-Fetch https://www.open.edu/openlearn/science-maths-technology/introduction-electronics/content-section-2.3.2 intro_electronics
-Fetch https://www.open.edu/openlearn/science-maths-technology/introduction-electronics/content-section-2.3.2 intro_electronics
+Fetch https://www.open.edu/openlearn/science-maths-technology/learn-code-data-analysis/content-section-overview-0?active-tab=description-tab learn_to_code

@@ -20,18 +20,17 @@ jobs:
       uses: actions/checkout@v2
 
 
-    - name: get commit message
+    - name: parse commit message
       run: |
-         echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
-        
+        echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
+        echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$commitmsg")"
+        echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$commitmsg")"
     - name: grab ouxml
       run: |
-        url="$(cut -d' ' -f2 <<<"$commitmsg")"
         ouxml_grab $url
  
     - name: convert to md
       run: |
-        outdir="$(cut -d' ' -f3 <<<"$commitmsg")"
         ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
         
     - name: git add and push

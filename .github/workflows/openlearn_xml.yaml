@@ -24,14 +24,20 @@ jobs:
       run: |
          echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
         
-    - name: handle ouxml
+    - name: grab ouxml
+      run: |
+        url="$(cut -d' ' -f2 <<<"$commitmsg")"
+        ouxml_grab $url
+ 
+    - name: convert to md
+      run: |
+        outdir="$(cut -d' ' -f3 <<<"$commitmsg")"
+        ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
+        
+    - name: git add and push
       run: |
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
-        url="$(cut -d' ' -f2 <<<"$commitmsg")"
-        outdir="$(cut -d' ' -f3 <<<"$commitmsg")"
-        ouxml_grab $url
-        ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
         git add "$outdir"
         git add openlearn_oer.db
         git commit -m"Add content to $outdir from $url"

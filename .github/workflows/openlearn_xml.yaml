@@ -22,9 +22,10 @@ jobs:
 
     - name: parse commit message
       run: |
-        echo ::set-env name=commitmsg::$(git log --format=%B -n 1 ${{ github.event.after }})
+        commitmsg="$(git log --format=%B -n 1 ${{ github.event.after }})"
         echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$commitmsg")"
         echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$commitmsg")"
+        echo ::set-env name=commitmsg::$commitmsg
     - name: grab ouxml
       run: |
         ouxml_grab $url

@@ -14,3 +14,4 @@ Fetch https://www.open.edu/openlearn/science-maths-technology/introduction-elect
 Fetch https://www.open.edu/openlearn/science-maths-technology/learn-code-data-analysis/content-section-overview-0?active-tab=description-tab learn_to_code
 Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-molecular-world/content-section-1.1 molworld
 Fetch https://www.open.edu/openlearn/history-the-arts/music/introduction-music-theory/content-section-0?intro=1 intro_music
+Fetch https://www.open.edu/openlearn/society-politics-law/sociology/climate-change-island-life-volatile-world/content-section-0?active-tab=description-tab climate_change_islands

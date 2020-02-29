@@ -2,3 +2,4 @@ Fetch https://www.open.edu/openlearn/science-maths-technology/chemistry/the-mole
 Fetch https://www.open.edu/openlearn/history-the-arts/music/introduction-music-theory/content-section-0?intro=1 intro_music
 Fetch https://www.open.edu/openlearn/history-the-arts/recording-music-and-sound/content-section-0?active-tab=description-tab recording_sound
 Fetch https://www.open.edu/openlearn/society-politics-law/sociology/climate-change-island-life-volatile-world/content-section-0?active-tab=description-tab climate_change_islands
+Fetch https://www.open.edu/openlearn/history-the-arts/visions-protest-graffiti/content-section-0?active-tab=description-tab graffiti

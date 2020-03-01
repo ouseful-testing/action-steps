@@ -1,10 +1,10 @@
 name: OpenLearnXML2
 on:
-  [issues, issue_comment]
+  issues
 
 jobs:
   openlearn-files-issue:
-    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login=='psychemedia'
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login==$(cut -d'/' -f1 <<<"$GITHUB_REPOSITORY")
     runs-on: ubuntu-latest
     steps:
 
@@ -22,8 +22,8 @@ jobs:
 
     - name: parse issue
       run: |
-        issue=${{github.event.issue.body}}
-        echo "Isse: $issue"
+        issue="${{github.event.issue.body}}"
+        echo "Issue: $issue"
         echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$issue")"
         echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$issue")"
         echo ::set-env name=issue::$issue

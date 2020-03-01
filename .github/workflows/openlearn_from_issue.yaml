@@ -1,11 +1,10 @@
 name: OpenLearnXML
 on:
-  issues:
-    opened
+  issues
 
 jobs:
   openlearn-files-issue:
-    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login=='psychemedia'
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn')
     runs-on: ubuntu-latest
     steps:
 

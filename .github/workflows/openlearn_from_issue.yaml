@@ -13,10 +13,10 @@ jobs:
       with:
         python-version: 3.6
  
-    - name: Show context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+  #  - name: Show context
+  #    env:
+  #      GITHUB_CONTEXT: ${{ toJson(github) }}
+  #    run: echo "$GITHUB_CONTEXT"
 
     - name: Install dependencies
       run: python -m pip install --upgrade git+https://github.com/innovationOUtside/open-ouxml-tools.git

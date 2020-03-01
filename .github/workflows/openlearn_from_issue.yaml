@@ -4,7 +4,7 @@ on:
 
 jobs:
   openlearn-files-issue:
-    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login==${{GITHUB_ACTOR}}
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login==GITHUB_ACTOR
     runs-on: ubuntu-latest
     steps:
 

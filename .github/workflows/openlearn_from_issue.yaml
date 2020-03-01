@@ -1,7 +1,7 @@
 name: OpenLearnXML2
 on:
   issues:
-    [opened]
+    types: [opened]
 jobs:
   openlearn-files-issue:
     if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login==github.actor

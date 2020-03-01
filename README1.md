@@ -1,6 +1,6 @@
 # `action steps` - ORIGINAL README
 
-This repo demonstrates several ways of using Github commit messages to trigger performative actions using Github Actions. THink of it as using commit messages as a command line interface.
+This repo demonstrates several ways of using Github commit messages to trigger performative actions using Github Actions. Think of it as using commit messages as a command line interface.
 
 Current examples include:
 

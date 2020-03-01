@@ -4,7 +4,7 @@ on:
 
 jobs:
   openlearn-files-issue:
-    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn')
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login=='psychemedia'
     runs-on: ubuntu-latest
     steps:
 
@@ -22,7 +22,8 @@ jobs:
 
     - name: parse issue
       run: |
-        issue=github.event.issue..body
+        issue=github.event.issue.body
+        echo "Isse: $issue"
         echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$issue")"
         echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$issue")"
         echo ::set-env name=issue::$issue

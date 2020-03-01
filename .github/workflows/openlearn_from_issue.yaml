@@ -1,0 +1,45 @@
+name: OpenLearnXML
+on:
+  issues:
+    opened
+
+jobs:
+  openlearn-files-issue:
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && github.event.issue.user.login=='psychemedia'
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+ 
+    - name: Install dependencies
+      run: python -m pip install --upgrade git+https://github.com/innovationOUtside/open-ouxml-tools.git
+      
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+
+
+    - name: parse issue
+      run: |
+        issue=github.event.issue..body
+        echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$issue")"
+        echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$issue")"
+        echo ::set-env name=issue::$issue
+    - name: grab ouxml
+      run: |
+        ouxml_grab $url
+ 
+    - name: convert to md
+      run: |
+        ouxml2md --dbname openlearn_oer.db --outdir "$outdir"
+        
+    - name: git add and push
+      run: |
+        git config --global user.email "tony.hirst@gmail.com"
+        git config --global user.name "psychemedia"
+        git add "$outdir"
+        git add openlearn_oer.db
+        git commit -m"Add content to $outdir from $url"
+        git push

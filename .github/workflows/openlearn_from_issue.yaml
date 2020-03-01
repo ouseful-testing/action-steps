@@ -22,7 +22,7 @@ jobs:
 
     - name: parse issue
       run: |
-        issue=github.event.issue.body
+        issue=${{github.event.issue.body}}
         echo "Isse: $issue"
         echo ::set-env name=url::"$(cut -d' ' -f2 <<<"$issue")"
         echo ::set-env name=outdir::"$(cut -d' ' -f3 <<<"$issue")"

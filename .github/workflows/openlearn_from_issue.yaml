@@ -1,6 +1,6 @@
 name: OpenLearnXML2
 on:
-  issues
+  [issues, issue_comment]
 
 jobs:
   openlearn-files-issue:

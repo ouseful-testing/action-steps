@@ -40,7 +40,7 @@ jobs:
         git config --global user.name "${GH_USERNAME}"
         git add "$outdir"
         git add openlearn_oer.db
-        git commit -m"Add content to $outdir from $url"
+        git commit -m"Add content to $outdir from $url" -a || true
         git push
       env: 
         GH_EMAIL: ${{ github.event.commits[0].author.email }}

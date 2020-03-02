@@ -46,7 +46,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git add "$outdir"
         git add openlearn_oer.db
-        git commit -m"Add content to $outdir from $url"
+        git commit -m"Add content to $outdir from $url" -a || true
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:

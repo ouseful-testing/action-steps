@@ -4,7 +4,7 @@ on:
     types: [opened, reopened]
 jobs:
   openlearn-files-issue:
-    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && (github.event.issue.author_association=='COLLABORATOR' || github.event.issue.author_association=='MEMBER') && github.event.issue.user.login==github.actor
+    if: startsWith(github.event.issue.title, 'Fetch https://www.open.edu/openlearn') && (github.event.issue.author_association=='COLLABORATOR' || github.event.issue.author_association=='MEMBER' || github.event.issue.author_association=='OWNER') && github.event.issue.user.login==github.actor
     runs-on: ubuntu-latest
     steps:
 
